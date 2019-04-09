@@ -365,7 +365,6 @@ class TransformerDecoder(FairseqIncrementalDecoder):
         input_embed_dim = embed_tokens.embedding_dim
         embed_dim = args.decoder_embed_dim
         output_embed_dim = args.decoder_output_dim
-        self.use_length_pos_as_res = args.use_length_pos_as_res
         self.ordinary_sinpos = args.ordinary_sinpos
         self.represent_length_by_lrpe = args.represent_length_by_lrpe
         self.represent_length_by_ldpe = args.represent_length_by_ldpe
@@ -505,21 +504,12 @@ class TransformerDecoder(FairseqIncrementalDecoder):
 
         # decoder layers
         for layer_num, layer in enumerate(self.layers):
-            if self.use_length_pos_as_res and layer_num == 0:
-                pos = positions_as_res
-            else:
-                pos = None
-            if self.use_length_control_by_multiply and layer_num == 0:
-                len4emb = target_length
-            else:
-                len4emb = None
             x, attn = layer(
                 x,
                 encoder_out['encoder_out'] if encoder_out is not None else None,
                 encoder_out['encoder_padding_mask'] if encoder_out is not None else None,
                 incremental_state,
                 self_attn_mask=self.buffered_future_mask(x) if incremental_state is None else None,
-                pos=pos, len4emb=len4emb,
             )
             inner_states.append(x)
 
