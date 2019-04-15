@@ -88,7 +88,7 @@ class SequenceGenerator(object):
             srclen = encoder_input['src_tokens'].size(1)
             #set desired length to batch instances
             if self.desired_length > -1:
-                encoder_input['target_length'].fill_(self.desired_length)
+                encoder_input['target_length'].fill_(self.desired_length + 1) #+1 for EOS
             if timer is not None:
                 timer.start()
             with torch.no_grad():
