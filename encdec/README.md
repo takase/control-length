@@ -2,11 +2,21 @@
 
 - Construction of binarized data with shared vocabulary
 
+    - Input data is plain text such as following example
+   
+    ```
+    australia 's current account deficit shrunk by a record 7.07 billion dollars -lrb- 6.04 billion us -rrb- in the june quarter due to soaring commodity prices , figures released monday showed .
+    at least two people were killed in a suspected bomb attack on a passenger bus in the strife-torn southern philippines on monday , the military said .
+    australian shares closed down 0.3 percent monday following a weak lead from the united states and lower commodity prices , dealers said .
+    ```
+
 ```
 python preprocess.py --source-lang SOURCE_SUFFIX --target-lang TARGET_SUFFIX 
 --trainpref PREFIX_PATH_TO_TRAIN_DATA --validpref PREFIX_PATH_TO_VALID_DATA 
 --joined-dictionary  --destdir PREPROCESS_PATH
 ```
+
+- If source file name of training data is text.source and target file name of training data is text.target, please set SOURCE_SUFFIX=source, TARGET_SUFFIX=target, PREFIX_PATH_TO_TRAIN_DATA=text
 
 - Preprocessing to test file
 
