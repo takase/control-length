@@ -13,7 +13,7 @@ This repository contains source files we used in our paper
 - Python 3.6 or later for training
 - Python 2.7 for calculating rouge
 - PyTorch 0.4
-
+  - To use new version PyTorch (e.g., 1.4.0), please use [this code](https://github.com/takase/alone_seq2seq) without one-emb option.
 
 ## Test data
 
