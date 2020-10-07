@@ -24,7 +24,7 @@ Test data used in our paper for each length
 
 ## Pre-trained model
 
-The following file contains pre-trained LRPE + PE model in English dataset. This model outputs ``` @@@ ``` as a space, namely, a segmentation marker of words.
+The following file contains pre-trained LRPE + PE model in English dataset. This model outputs ``` @@@@ ``` as a space, namely, a segmentation marker of words.
 
 The file also contains BPE code to split a plane English text into BPE with [this code](https://github.com/rsennrich/subword-nmt).
 
